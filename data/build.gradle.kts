@@ -53,6 +53,7 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.logging.interceptor)
 
     implementation(libs.kotlinx.coroutine.android)
     testImplementation(libs.kotlinx.coroutine.test)

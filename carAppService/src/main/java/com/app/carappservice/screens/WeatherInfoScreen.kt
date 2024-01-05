@@ -20,13 +20,14 @@ import coil.request.ImageRequest
 import coil.request.SuccessResult
 import com.app.carappservice.R
 import com.app.carappservice.di.AppComponent
+import com.app.carappservice.utils.CarUtils
 import com.app.domain.ResponseState
 import com.app.domain.entities.WeatherInfo
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
-class CityDetailScreen(
+class WeatherInfoScreen(
     carContext: CarContext,
     private val cityName: String,
     private val appComponent: AppComponent
@@ -105,11 +106,20 @@ class CityDetailScreen(
                             weatherInfo.temp.roundToInt().toString()
                         )
                     )
-                    .addText(
+                    .build()
+            )
+            .addRow(
+                Row.Builder()
+                    .setImage(
+                        CarIcon.Builder(
+                            IconCompat.createWithResource(carContext, R.drawable.ic_humidity)
+                        ).build(),
+                        Row.IMAGE_TYPE_ICON
+                    )
+                    .setTitle(
                         carContext.getString(
-                            R.string.high_low_temp,
-                            weatherInfo.temp_max.roundToInt().toString(),
-                            weatherInfo.temp_min.roundToInt().toString()
+                            R.string.high_temp,
+                            weatherInfo.temp_max.roundToInt().toString()
                         )
                     )
                     .build()
@@ -124,75 +134,34 @@ class CityDetailScreen(
                     )
                     .setTitle(
                         carContext.getString(
-                            R.string.humidity,
-                            weatherInfo.humidity.toString()
+                            R.string.low_temp,
+                            weatherInfo.temp_min.roundToInt().toString()
                         )
                     )
                     .build()
             )
-            .addRow(
-                Row.Builder()
-                    .setImage(
-                        CarIcon.Builder(
-                            IconCompat.createWithResource(carContext, R.drawable.ic_wind)
-                        ).build(),
-                        Row.IMAGE_TYPE_ICON
-                    )
-                    .setTitle(carContext.getString(R.string.wind, weatherInfo.speed.toString()))
-                    .build()
-            )
-            .addRow(
-                Row.Builder()
-                    .setImage(
-                        CarIcon.Builder(
-                            IconCompat.createWithResource(carContext, R.drawable.ic_sunrise)
-                        ).build(),
-                        Row.IMAGE_TYPE_ICON
-                    )
-                    .setTitle(carContext.getString(R.string.sunrise, weatherInfo.sunrise))
-                    .build()
-            )
-            .addRow(
-                Row.Builder()
-                    .setImage(
-                        CarIcon.Builder(
-                            IconCompat.createWithResource(carContext, R.drawable.ic_sunset)
-                        ).build(),
-                        Row.IMAGE_TYPE_ICON
-                    )
-                    .setTitle(carContext.getString(R.string.sunset, weatherInfo.sunset))
-                    .build()
-            )
-            .addRow(
-                Row.Builder()
-                    .setImage(
-                        CarIcon.Builder(
-                            IconCompat.createWithResource(carContext, R.drawable.ic_visibility)
-                        ).build(),
-                        Row.IMAGE_TYPE_ICON
-                    )
-                    .setTitle(
-                        carContext.getString(
-                            R.string.visibility,
-                            weatherInfo.visibility.toString()
+            .addAction(
+                Action.Builder()
+                    .setTitle(carContext.getString(R.string.view_in_detail))
+                    .setOnClickListener {
+                        screenManager.push(
+                            WeatherDetailScreen(
+                                carContext,
+                                weatherInfo
+                            )
                         )
-                    )
+                    }
                     .build()
             )
-            .addRow(
-                Row.Builder()
-                    .setImage(
+            .addAction(
+                Action.Builder()
+                    .setIcon(
                         CarIcon.Builder(
-                            IconCompat.createWithResource(carContext, R.drawable.ic_pressure)
-                        ).build(),
-                        Row.IMAGE_TYPE_ICON
+                            IconCompat.createWithResource(carContext, R.drawable.ic_navigate)
+                        ).build()
                     )
-                    .setTitle(
-                        carContext.getString(
-                            R.string.pressure,
-                            weatherInfo.pressure.toString()
-                        )
-                    )
+                    .setTitle(carContext.getString(R.string.navigate))
+                    .setOnClickListener { CarUtils.navigateTo(carContext, cityName) }
                     .build()
             )
 

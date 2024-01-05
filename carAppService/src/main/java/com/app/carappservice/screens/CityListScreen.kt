@@ -58,7 +58,7 @@ class CityListScreen(
                     .setTitle(it)
                     .setBrowsable(true)
                     .setOnClickListener {
-                        screenManager.push(CityDetailScreen(carContext, it, appComponent))
+                        screenManager.push(WeatherInfoScreen(carContext, it, appComponent))
                     }
                     .build()
             )
