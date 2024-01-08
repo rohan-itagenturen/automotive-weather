@@ -30,7 +30,7 @@ class CityListScreen(
         lifecycle.addObserver(this)
 
         job = lifecycleScope.launch {
-            appComponent.cityUseCase().collect {
+            appComponent.getCityUseCase().collect {
                 responseState = it
                 invalidate()
             }

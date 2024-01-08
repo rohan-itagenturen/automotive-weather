@@ -1,11 +1,10 @@
-package com.app.carweather.ui.screen.weather
+package com.app.carweather.ui.screen.cities
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.carweather.utils.UiState
 import com.app.domain.ResponseState
-import com.app.domain.usecase.GetWeatherUseCase
-import com.app.models.domain.WeatherInfo
+import com.app.domain.usecase.GetCityUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,16 +13,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ShowWeatherViewModel @Inject constructor(
-    private val getWeatherUseCase: GetWeatherUseCase
+class CityViewModel @Inject constructor(
+    private val getCitiesUseCase: GetCityUseCase
 ) : ViewModel() {
 
     private val _viewData = MutableStateFlow(ViewData())
     val viewData: StateFlow<ViewData> get() = _viewData.asStateFlow()
 
-    fun getWeather(cityName: String, unit: String) {
+    fun getCities() {
         viewModelScope.launch {
-            getWeatherUseCase(cityName, unit)
+            getCitiesUseCase()
                 .collect { response ->
                     when (response) {
                         is ResponseState.Error -> {
@@ -42,7 +41,7 @@ class ShowWeatherViewModel @Inject constructor(
                         is ResponseState.Success -> {
                             _viewData.value = _viewData.value.copy(
                                 state = UiState.LOADED,
-                                weatherInfo = response.data
+                                cities = response.data
                             )
                         }
                     }
@@ -53,7 +52,7 @@ class ShowWeatherViewModel @Inject constructor(
 
     data class ViewData(
         val state: UiState = UiState.LOADING,
-        val weatherInfo: WeatherInfo = WeatherInfo(),
+        val cities: List<String> = listOf(),
         val errorMessage: String = ""
     )
 }

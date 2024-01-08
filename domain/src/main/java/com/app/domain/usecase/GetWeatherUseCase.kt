@@ -1,8 +1,8 @@
 package com.app.domain.usecase
 
+import com.app.data.repositories.IWeatherRepository
 import com.app.domain.ResponseState
-import com.app.domain.entities.WeatherInfo
-import com.app.domain.repositories.IWeatherRepository
+import com.app.models.domain.WeatherInfo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

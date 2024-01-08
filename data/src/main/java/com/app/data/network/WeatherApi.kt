@@ -1,6 +1,6 @@
 package com.app.data.network
 
-import com.app.data.network.entities.WeatherData
+import com.app.models.data.WeatherData
 import retrofit2.http.GET
 import retrofit2.http.Query
 

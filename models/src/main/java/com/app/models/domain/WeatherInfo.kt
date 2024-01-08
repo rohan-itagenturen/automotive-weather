@@ -1,6 +1,6 @@
-package com.app.domain.entities
+package com.app.models.domain
 
-import com.app.data.network.entities.WeatherData
+import com.app.models.data.WeatherData
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale

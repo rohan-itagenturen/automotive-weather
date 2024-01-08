@@ -1,9 +1,9 @@
 package com.app.domain.usecase
 
 import app.cash.turbine.test
+import com.app.data.repositories.IWeatherRepository
 import com.app.domain.ResponseState
-import com.app.domain.entities.WeatherInfo
-import com.app.domain.repositories.IWeatherRepository
+import com.app.models.domain.WeatherInfo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert

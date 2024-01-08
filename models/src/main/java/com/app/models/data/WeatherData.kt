@@ -1,4 +1,4 @@
-package com.app.data.network.entities
+package com.app.models.data
 
 data class WeatherData(
     val base: String?,

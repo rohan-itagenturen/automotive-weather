@@ -1,8 +1,8 @@
-package com.app.domain.repositories
+package com.app.data.repositories
 
 import com.app.data.network.WeatherApi
-import com.app.domain.entities.WeatherInfo
-import com.app.domain.entities.toWeatherInfo
+import com.app.models.domain.WeatherInfo
+import com.app.models.domain.toWeatherInfo
 import javax.inject.Inject
 
 class WeatherRepositoryImpl @Inject constructor(

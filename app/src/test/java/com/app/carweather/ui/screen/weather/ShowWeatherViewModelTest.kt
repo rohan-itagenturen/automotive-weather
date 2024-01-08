@@ -3,8 +3,8 @@ package com.app.carweather.ui.screen.weather
 import app.cash.turbine.test
 import com.app.carweather.utils.UiState
 import com.app.domain.ResponseState
-import com.app.domain.entities.WeatherInfo
 import com.app.domain.usecase.GetWeatherUseCase
+import com.app.models.domain.WeatherInfo
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

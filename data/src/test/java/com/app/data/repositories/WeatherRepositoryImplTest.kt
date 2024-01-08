@@ -1,8 +1,8 @@
-package com.app.domain.repositories
+package com.app.data.repositories
 
 import com.app.data.network.WeatherApi
-import com.app.data.network.entities.WeatherData
-import com.app.domain.entities.WeatherInfo
+import com.app.models.data.WeatherData
+import com.app.models.domain.WeatherInfo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert

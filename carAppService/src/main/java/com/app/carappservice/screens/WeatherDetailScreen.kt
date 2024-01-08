@@ -13,7 +13,7 @@ import androidx.car.app.model.Template
 import androidx.core.graphics.drawable.IconCompat
 import androidx.lifecycle.DefaultLifecycleObserver
 import com.app.carappservice.R
-import com.app.domain.entities.WeatherInfo
+import com.app.models.domain.WeatherInfo
 
 class WeatherDetailScreen(
     carContext: CarContext,

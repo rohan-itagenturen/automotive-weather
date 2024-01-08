@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.app.carweather.R
-import com.app.domain.entities.WeatherInfo
+import com.app.models.domain.WeatherInfo
 import kotlin.math.roundToInt
 
 @Composable

@@ -22,7 +22,7 @@ import com.app.carappservice.R
 import com.app.carappservice.di.AppComponent
 import com.app.carappservice.utils.CarUtils
 import com.app.domain.ResponseState
-import com.app.domain.entities.WeatherInfo
+import com.app.models.domain.WeatherInfo
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt

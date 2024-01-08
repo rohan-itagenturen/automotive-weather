@@ -2,10 +2,10 @@ package com.app.domain.di
 
 import com.app.data.di.NetworkModule.OPEN_WEATHER_KEY
 import com.app.data.network.WeatherApi
-import com.app.domain.repositories.CityRepositoryImpl
-import com.app.domain.repositories.ICityRepository
-import com.app.domain.repositories.IWeatherRepository
-import com.app.domain.repositories.WeatherRepositoryImpl
+import com.app.data.repositories.CityRepositoryImpl
+import com.app.data.repositories.ICityRepository
+import com.app.data.repositories.IWeatherRepository
+import com.app.data.repositories.WeatherRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
