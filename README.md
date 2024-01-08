@@ -12,6 +12,9 @@ It contains code for Car applications used by Android Auto and Android Automotiv
 ## :app, :data & :domain modules 
 Complies with Clean code architecture
 
+## :models module 
+It hosts the data models of the domain and data layer.
+
 ## How to build?
 Install latest Android Studio Version
 
